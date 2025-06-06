@@ -1,6 +1,7 @@
 import { isElementInArray } from './isElementInArray';
 
 describe('The isElementInArray', () => {
+
   describe('when provided with a valid array of strings', () => {
     let array;
 
@@ -14,6 +15,7 @@ describe('The isElementInArray', () => {
         expect(result).toBe(false);
       });
     });
+
     describe('and the desired element is in the array', () => {
       it('should return true', () => {
         const result = isElementInArray(array, 'strawberry');
@@ -21,6 +23,7 @@ describe('The isElementInArray', () => {
       });
     });
   });
+
   describe('when provided with a valid array of strings', () => {
     let numbersArray;
 
@@ -40,6 +43,18 @@ describe('The isElementInArray', () => {
         const result = isElementInArray(numbersArray, 5);
         expect(result).toBe(true);
       });
+    });
+  });
+
+  describe('when checking if the original array is mutated', () => {
+    it('should not mutate the original array', () => {
+      const originalArray = ['apple', 'banana', 'cherry'];
+      const arrayClone = [...originalArray];
+      
+      isElementInArray(originalArray, 'banana');
+      
+      expect(originalArray).toEqual(arrayClone);
+      expect(originalArray.length).toBe(arrayClone.length);
     });
   });
 });
