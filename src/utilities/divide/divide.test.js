@@ -9,13 +9,13 @@ describe('The divide function', () => {
   });
 
   describe('when the first number equals zero', () => {
-    describe('when the second number does not equal zero', () => {
+    describe('and when the second number does not equal zero', () => {
       it('should return zero', () => {
         const result = divide(0, 5);
         expect(result).toBe(0);
       });
     });
-    describe('when the second number equals zero', () => {
+    describe('and when the second number equals zero', () => {
       it('should return NaN', () => {
         const result = divide(0, 0);
         expect(result).toBe(NaN);
