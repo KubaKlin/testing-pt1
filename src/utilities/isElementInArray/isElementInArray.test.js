@@ -46,15 +46,13 @@ describe('The isElementInArray', () => {
     });
   });
 
-  describe('when checking if the original array is mutated', () => {
-    it('should not mutate the original array', () => {
-      const originalArray = ['apple', 'banana', 'cherry'];
-      const arrayClone = [...originalArray];
-      
-      isElementInArray(originalArray, 'banana');
-      
-      expect(originalArray).toEqual(arrayClone);
-      expect(originalArray.length).toBe(arrayClone.length);
-    });
+  it('should not mutate the original array', () => {
+    const originalArray = ['apple', 'banana', 'cherry'];
+    const arrayClone = [...originalArray];
+
+    isElementInArray(originalArray, 'banana');
+
+    expect(originalArray).toEqual(arrayClone);
+    expect(originalArray.length).toBe(arrayClone.length);
   });
 });

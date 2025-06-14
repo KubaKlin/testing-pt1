@@ -3,28 +3,28 @@ import { getBmi } from './getBmi';
 describe('getBmi()', () => {
   describe('when provided with valid weight and height', () => {
     describe('and BMI is underweight (under 18.5)', () => {
-      it('should return "underweight"', () => {
+      it('should return correct value', () => {
         const result = getBmi(55, 1.73);
         expect(result).toBe('underweight');
       });
     });
 
     describe('and BMI is normal weight (18.5 to 24.9)', () => {
-      it('should return "normal weight"', () => {
+      it('should return correct value', () => {
         const result = getBmi(70, 1.75);
         expect(result).toBe('normal weight');
       });
     });
 
     describe('and BMI is overweight (25 to 29.9)', () => {
-      it('should return "overweight"', () => {
+      it('should return correct value', () => {
         const result = getBmi(85, 1.75);
         expect(result).toBe('overweight');
       });
     });
 
     describe('and BMI is obese (30 or more)', () => {
-      it('should return "obese"', () => {
+      it('should return correct value', () => {
         const result = getBmi(120, 1.75);
         expect(result).toBe('obese');
       });

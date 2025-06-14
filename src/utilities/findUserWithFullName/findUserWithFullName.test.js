@@ -26,7 +26,7 @@ describe('findUserWithFullName()', () => {
 
   describe('when provided with valid users array and full name', () => {
     describe('and user exists in the array', () => {
-      it('should return Kate Williams with heightInCm 169', () => {
+      it('should return correct object', () => {
         const result = findUserWithFullName(usersArray, 'Kate Williams');
         expect(result).toEqual({
           firstName: 'Kate',

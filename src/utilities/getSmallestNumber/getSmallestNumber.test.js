@@ -1,9 +1,9 @@
 import { getSmallestNumber } from './getSmallestNumber';
 
 describe('getSmallestNumber()', () => {
-  describe('when provided with valid arrays of numbers', () => {
+  describe('when provided with valid array of numbers', () => {
     describe('and array contains positive and negative numbers', () => {
-      it('should return -5 for [2, -5, 10, 1, 4]', () => {
+      it('should return correct value', () => {
         const result = getSmallestNumber([2, -5, 10, 1, 4]);
         expect(result).toBe(-5);
       });
@@ -15,7 +15,7 @@ describe('getSmallestNumber()', () => {
     });
 
     describe('and array contains only positive numbers', () => {
-      it('should return 4 for [200, 25, 4, 123, 87]', () => {
+      it('should return correct value', () => {
         const result = getSmallestNumber([200, 25, 4, 123, 87]);
         expect(result).toBe(4);
       });
@@ -112,15 +112,13 @@ describe('getSmallestNumber()', () => {
     });
   });
 
-  describe('when checking if the original array is not mutated', () => {
-    it('should not mutate the original array', () => {
-      const originalArray = [5, 2, 8, 1, 9];
-      const arrayClone = [...originalArray];
-      
-      getSmallestNumber(originalArray);
-      
-      expect(originalArray).toEqual(arrayClone);
-      expect(originalArray.length).toBe(arrayClone.length);
-    });
+  it('should not mutate the original array', () => {
+    const originalArray = [5, 2, 8, 1, 9];
+    const arrayClone = [...originalArray];
+
+    getSmallestNumber(originalArray);
+
+    expect(originalArray).toEqual(arrayClone);
+    expect(originalArray.length).toBe(arrayClone.length);
   });
 }); 

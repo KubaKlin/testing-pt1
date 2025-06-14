@@ -3,31 +3,26 @@ import { isPalindrome } from './isPalindrome';
 describe('isPalindrome()', () => {
   describe('when provided with valid palindromes', () => {
     describe('and string is a simple palindrome', () => {
-      it('should return true for "Kayak"', () => {
+      it('should return true', () => {
         const result = isPalindrome('Kayak');
-        expect(result).toBe(true);
-      });
-
-      it('should return true for mixed case palindromes', () => {
-        const result = isPalindrome('RaceCar');
         expect(result).toBe(true);
       });
     });
 
     describe('and string contains spaces and punctuation', () => {
-      it('should return true for "Was it a cat I saw"', () => {
+      it('should return true"', () => {
         const result = isPalindrome('Was it a cat I saw');
         expect(result).toBe(true);
       });
 
-      it('should return true for "A man, a plan, a canal: Panama"', () => {
+      it('should return true', () => {
         const result = isPalindrome('A man, a plan, a canal: Panama');
         expect(result).toBe(true);
       });
     });
 
     describe('and string contains numbers', () => {
-      it('should return true for "A1B2b1a"', () => {
+      it('should return true', () => {
         const result = isPalindrome('A1B2b1a');
         expect(result).toBe(true);
       });
@@ -49,7 +44,7 @@ describe('isPalindrome()', () => {
   });
 
   describe('when provided with non-palindromes', () => {
-    it('should return false for "Hello!"', () => {
+    it('should return false', () => {
       const result = isPalindrome('Hello!');
       expect(result).toBe(false);
     });

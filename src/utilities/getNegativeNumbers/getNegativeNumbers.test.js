@@ -1,9 +1,9 @@
 import { getNegativeNumbers } from './getNegativeNumbers';
 
 describe('getNegativeNumbers()', () => {
-  describe('when provided with valid arrays of numbers', () => {
+  describe('when provided with valid array of numbers', () => {
     describe('and array contains mixed positive and negative numbers', () => {
-      it('should return [-5, -3, -152] for [1, -5, -3, 12, -152]', () => {
+      it('should return correct value', () => {
         const result = getNegativeNumbers([1, -5, -3, 12, -152]);
         expect(result).toEqual([-5, -3, -152]);
       });
@@ -96,15 +96,13 @@ describe('getNegativeNumbers()', () => {
     });
   });
 
-  describe('when checking if the original array is not mutated', () => {
-    it('should not mutate the original array', () => {
-      const originalArray = [1, -5, -3, 12, -152];
-      const arrayClone = [...originalArray];
-      
-      getNegativeNumbers(originalArray);
-      
-      expect(originalArray).toEqual(arrayClone);
-      expect(originalArray.length).toBe(arrayClone.length);
-    });
+  it('should not mutate the original array', () => {
+    const originalArray = [1, -5, -3, 12, -152];
+    const arrayClone = [...originalArray];
+
+    getNegativeNumbers(originalArray);
+
+    expect(originalArray).toEqual(arrayClone);
+    expect(originalArray.length).toBe(arrayClone.length);
   });
-}); 
+});

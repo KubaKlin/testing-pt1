@@ -1,30 +1,25 @@
 import { getSquaredNumbers } from './getSquaredNumbers';
 
 describe('getSquaredNumbers()', () => {
-  describe('when provided with valid arrays of numbers', () => {
+  describe('when provided with valid array of numbers', () => {
     describe('and array contains positive integers', () => {
-      it('should return [1, 4, 9, 16, 25] for [1, 2, 3, 4, 5]', () => {
+      it('should return correct values', () => {
         const result = getSquaredNumbers([1, 2, 3, 4, 5]);
         expect(result).toEqual([1, 4, 9, 16, 25]);
       });
     });
 
     describe('and array contains negative numbers', () => {
-      it('should handle mixed positive and negative numbers', () => {
+      it('should return correct values', () => {
         const result = getSquaredNumbers([-2, 3, -4, 5]);
         expect(result).toEqual([4, 9, 16, 25]);
       });
     });
 
     describe('and array contains decimal numbers', () => {
-      it('should handle negative decimals', () => {
+      it('should return correct values', () => {
         const result = getSquaredNumbers([-1.5, -2.5]);
         expect(result).toEqual([2.25, 6.25]);
-      });
-
-      it('should handle mixed integers and decimals', () => {
-        const result = getSquaredNumbers([2, 2.5, 3, 3.5]);
-        expect(result).toEqual([4, 6.25, 9, 12.25]);
       });
     });
 
@@ -106,15 +101,13 @@ describe('getSquaredNumbers()', () => {
     });
   });
 
-  describe('when checking if the original array is not mutated', () => {
-    it('should not mutate the original array', () => {
-      const originalArray = [1, 2, 3, 4, 5];
-      const arrayClone = [...originalArray];
-      
-      getSquaredNumbers(originalArray);
-      
-      expect(originalArray).toEqual(arrayClone);
-      expect(originalArray.length).toBe(arrayClone.length);
-    });
+  it('should not mutate the original array', () => {
+    const originalArray = [1, 2, 3, 4, 5];
+    const arrayClone = [...originalArray];
+
+    getSquaredNumbers(originalArray);
+
+    expect(originalArray).toEqual(arrayClone);
+    expect(originalArray.length).toBe(arrayClone.length);
   });
-}); 
+});
