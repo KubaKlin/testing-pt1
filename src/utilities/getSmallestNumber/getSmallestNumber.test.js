@@ -1,6 +1,6 @@
 import { getSmallestNumber } from './getSmallestNumber';
 
-describe('getSmallestNumber()', () => {
+describe('getSmallestNumber function', () => {
   describe('when provided with valid array of numbers', () => {
     describe('and array contains positive and negative numbers', () => {
       it('should return correct value', () => {

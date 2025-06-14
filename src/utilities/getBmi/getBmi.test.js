@@ -1,6 +1,6 @@
 import { getBmi } from './getBmi';
 
-describe('getBmi()', () => {
+describe('getBmi function', () => {
   describe('when provided with valid weight and height', () => {
     describe('and BMI is underweight (under 18.5)', () => {
       it('should return correct value', () => {

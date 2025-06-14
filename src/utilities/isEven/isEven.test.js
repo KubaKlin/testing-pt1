@@ -1,6 +1,6 @@
 import { isEven } from './isEven';
 
-describe('isEven()', () => {
+describe('isEven function', () => {
   describe('when provided with valid numbers', () => {
     describe('when provided number is even', () => {
       it('should return true', () => {

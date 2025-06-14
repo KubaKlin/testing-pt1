@@ -1,6 +1,6 @@
 import { getSquaredNumbers } from './getSquaredNumbers';
 
-describe('getSquaredNumbers()', () => {
+describe('getSquaredNumbers function', () => {
   describe('when provided with valid array of numbers', () => {
     describe('and array contains positive integers', () => {
       it('should return correct values', () => {

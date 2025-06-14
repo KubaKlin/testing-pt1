@@ -1,6 +1,6 @@
 import { countCompletedTodos } from './countCompletedTodos';
 
-describe('countCompletedTodos()', () => {
+describe('countCompletedTodos function', () => {
   describe('when provided with an array of todos', () => {
     describe('and all todos are completed', () => {
       it('should return the total number of todos', () => {

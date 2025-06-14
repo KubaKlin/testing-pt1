@@ -1,6 +1,6 @@
 import {getDayOfTheWeek} from './getDayOfTheWeek';
 
-describe('getDayOfTheWeek()', () => {
+describe('getDayOfTheWeek function', () => {
   describe('when provided with invalid day numbers', () => {
     it('should return undefined for negative numbers', () => {
       const dayOfTheWeek = getDayOfTheWeek(-1);

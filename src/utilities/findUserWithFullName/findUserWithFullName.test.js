@@ -1,6 +1,6 @@
 import { findUserWithFullName } from './findUserWithFullName';
 
-describe('findUserWithFullName()', () => {
+describe('findUserWithFullName function', () => {
   const usersArray = [
     {
       firstName: 'John',

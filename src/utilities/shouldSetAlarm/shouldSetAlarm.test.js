@@ -1,6 +1,6 @@
 import { shouldSetAlarm } from './shouldSetAlarm';
 
-describe('shouldSetAlarm()', () => {
+describe('shouldSetAlarm function', () => {
   describe('when provided with valid options', () => {
     describe('and person is employed and not on vacation', () => {
       it('should return true', () => {

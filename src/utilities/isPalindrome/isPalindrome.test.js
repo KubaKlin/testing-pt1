@@ -1,6 +1,6 @@
 import { isPalindrome } from './isPalindrome';
 
-describe('isPalindrome()', () => {
+describe('isPalindrome function', () => {
   describe('when provided with valid palindromes', () => {
     describe('and string is a simple palindrome', () => {
       it('should return true', () => {
