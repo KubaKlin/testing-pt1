@@ -1,28 +1,32 @@
 import { findUserWithFullName } from './findUserWithFullName';
 
 describe('findUserWithFullName function', () => {
-  const usersArray = [
-    {
-      firstName: 'John',
-      lastName: 'Smith',
-      heightInCm: 184
-    },
-    {
-      firstName: 'Kate',
-      lastName: 'Williams',
-      heightInCm: 169
-    },
-    {
-      firstName: 'Mike',
-      lastName: 'Johnson',
-      heightInCm: 175,
-    },
-    {
-      firstName: 'Sarah',
-      lastName: 'Davis',
-      heightInCm: 162,
-    }
-  ];
+  let usersArray;
+
+  beforeEach(() => {
+    usersArray = [
+      {
+        firstName: 'John',
+        lastName: 'Smith',
+        heightInCm: 184
+      },
+      {
+        firstName: 'Kate',
+        lastName: 'Williams',
+        heightInCm: 169
+      },
+      {
+        firstName: 'Mike',
+        lastName: 'Johnson',
+        heightInCm: 175,
+      },
+      {
+        firstName: 'Sarah',
+        lastName: 'Davis',
+        heightInCm: 162,
+      }
+    ];
+  });
 
   describe('when provided with valid users array and full name', () => {
     describe('and user exists in the array', () => {
@@ -52,14 +56,18 @@ describe('findUserWithFullName function', () => {
     });
 
     describe('and array contains users with same names', () => {
-      const usersWithDuplicates = [
-        ...usersArray,
-        {
-          firstName: 'John',
-          lastName: 'Smith',
-          heightInCm: 190,
-        }
-      ];
+      let usersWithDuplicates;
+
+      beforeEach(() => {
+        usersWithDuplicates = [
+          ...usersArray,
+          {
+            firstName: 'John',
+            lastName: 'Smith',
+            heightInCm: 190,
+          }
+        ];
+      });
 
       it('should return the first matching user', () => {
         const result = findUserWithFullName(usersWithDuplicates, 'John Smith');
@@ -137,23 +145,29 @@ describe('findUserWithFullName function', () => {
     });
 
     describe('and array contains invalid user objects', () => {
+      let invalidUsers;
+
+      beforeEach(() => {
+        invalidUsers = [];
+      });
+
       it('should throw error for array with null', () => {
-        const invalidUsers = [usersArray[0], null, usersArray[1]];
+        invalidUsers = [usersArray[0], null, usersArray[1]];
         expect(() => findUserWithFullName(invalidUsers, 'Kate Williams')).toThrow('All array elements must be valid user objects');
       });
 
       it('should throw error for array with primitive values', () => {
-        const invalidUsers = [usersArray[0], 'invalid', usersArray[1]];
+        invalidUsers = [usersArray[0], 'invalid', usersArray[1]];
         expect(() => findUserWithFullName(invalidUsers, 'Kate Williams')).toThrow('All array elements must be valid user objects');
       });
 
       it('should throw error for array with arrays', () => {
-        const invalidUsers = [usersArray[0], ['John', 'Smith'], usersArray[1]];
+        invalidUsers = [usersArray[0], ['John', 'Smith'], usersArray[1]];
         expect(() => findUserWithFullName(invalidUsers, 'Kate Williams')).toThrow('All array elements must be valid user objects');
       });
 
       it('should throw error for missing firstName', () => {
-        const invalidUsers = [
+        invalidUsers = [
           usersArray[0], 
           { lastName: 'Williams', heightInCm: 169 }, 
           usersArray[1]
@@ -162,7 +176,7 @@ describe('findUserWithFullName function', () => {
       });
 
       it('should throw error for non-string firstName', () => {
-        const invalidUsers = [
+        invalidUsers = [
           usersArray[0], 
           { firstName: 123, lastName: 'Williams', heightInCm: 169 }, 
           usersArray[1]
@@ -173,9 +187,13 @@ describe('findUserWithFullName function', () => {
   });
 
   describe('when checking if the original array is not mutated', () => {
+    let originalUsers;
+
+    beforeEach(() => {
+      originalUsers = [...usersArray];
+    });
+
     it('should not mutate the original users array', () => {
-      const originalUsers = [...usersArray];
-      
       findUserWithFullName(usersArray, 'Kate Williams');
       
       expect(usersArray).toEqual(originalUsers);
